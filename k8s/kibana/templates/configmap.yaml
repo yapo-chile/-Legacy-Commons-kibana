@@ -7,5 +7,8 @@ metadata:
 {{ include "kibana.labels" . | indent 4 }}
 data:
   # Your env variables should be written here.
-  ELASTICSEARCH_URL: "{{ .Values.elasticsearch.url }}"
+  SERVER_NAME: "{{ .Values.kibana.serverName }}"
+  SERVER_HOST: "{{ .Values.kibana.serverHost }}"
+  SERVER_PORT: "{{ .Values.kibana.serverPort }}"
+  ELASTICSEARCH_HOSTS: "{{ .Values.elasticsearch.hosts }}"
 

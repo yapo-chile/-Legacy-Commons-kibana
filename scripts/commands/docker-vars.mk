@@ -1,3 +1,3 @@
 
 # kibana variables
-ELASTICSEARCH_URL=http://elasticsearch.regress.yapo.cl:80
+ELASTICSEARCH_HOSTS=http://elasticsearch.regress.yapo.cl:80

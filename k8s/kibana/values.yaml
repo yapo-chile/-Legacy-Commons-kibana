@@ -20,7 +20,7 @@ fullnameOverride: ""
 
 service:
   type: ClusterIP
-  port: 5601
+  port: 8080
 
 healthcheck:
   path: /api/status
@@ -31,8 +31,14 @@ healthcheck:
     initialDelaySeconds: 5
     periodSeconds: 3600
 
+kibana:
+  serverName: "kibana.pre.yapo.cl"
+  serverHost: "0.0.0.0"
+  serverPort: "8080"
+
 elasticsearch:
-  url: "http://elasticsearch:9200"
+  hosts: "http://elasticsearch:9200"
+
 
 ingress:
   enabled: true
