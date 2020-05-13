@@ -1,0 +1,34 @@
+{
+    "Actions": [
+      {
+        "Name": "JUnit",
+        "Matcher": {
+          "Name": "RegexpFilePathMatcher",
+          "Args": [ "reports\\/junit-report.xml" ]
+        },
+        "Publisher": {
+          "Name": "FilePublisher",
+          "Args": [ "junit", "xml", true ]
+        }
+      },{
+        "Name": "Coverage",
+        "Matcher": {
+          "Name": "RegexpFilePathMatcher",
+          "Args": [ "reports\\/coverage.xml" ]
+        },
+        "Publisher": {
+          "Name": "FilePublisher",
+          "Args": ["cobertura", "xml"]
+        }
+      },{
+        "Name": "CheckStyle",
+        "Matcher": {
+          "Name": "RegexpFilePathMatcher",
+          "Args": ["reports\\/checkstyle-report.xml"  ]
+        },
+        "Publisher": {
+          "Name": "FilePublisher",
+          "Args": ["checkstyle", "xml"]
+        }
+      }]
+  }

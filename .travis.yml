@@ -1,0 +1,25 @@
+services:
+  - docker
+
+env:
+  global:
+    - BRANCH=$([ ${TRAVIS_BRANCH} == master ] && echo latest || echo ${TRAVIS_BRANCH})
+
+before_install:
+  - configure_jfrog_client
+  - helm init --client-only
+
+script:
+  - make docker-build
+  
+deploy:
+  - provider: script
+    script: make docker-publish
+    on:
+      all_branches: true
+      condition: $TRAVIS_PULL_REQUEST = false
+  - provider: script
+    script: make helm-publish
+    on:
+      all_branches: true
+      condition: $TRAVIS_PULL_REQUEST = false
