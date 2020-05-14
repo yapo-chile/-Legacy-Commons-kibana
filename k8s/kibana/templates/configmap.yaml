@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{.Release.Name}}-kibana-configmap
+  namespace: {{ .Release.Namespace }}
+  labels:
+{{ include "kibana.labels" . | indent 4 }}
+data:
+  # Your env variables should be written here.
+  SERVER_NAME: "{{ .Values.kibana.serverName }}"
+  SERVER_HOST: "{{ .Values.kibana.serverHost }}"
+  SERVER_PORT: "{{ .Values.kibana.serverPort }}"
+  ELASTICSEARCH_HOSTS: "{{ .Values.elasticsearch.hosts }}"
+
